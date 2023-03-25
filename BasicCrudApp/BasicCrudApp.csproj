@@ -12,8 +12,6 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="Data Layers\Entities\" />
-    <Folder Include="Data Layers\Repositories\" />
   </ItemGroup>
 
 </Project>
