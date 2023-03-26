@@ -1,4 +1,5 @@
-﻿using BasicCrudApp.DataLayers.Entities;
+﻿using BasicCrudApp.DataLayers.DTOs;
+using BasicCrudApp.DataLayers.Entities;
 using BasicCrudApp.DataLayers.Repositories;
 
 namespace BasicCrudApp.Services
@@ -40,6 +41,17 @@ namespace BasicCrudApp.Services
         public void DeleteRealEstate(RealEstateEntity realEstate)
         {
             _repository.DeleteRealEstate(realEstate);
+        }
+
+        public bool EditPrice(RealEstateUpdatePriceDto payload)
+        {
+            var realEstate = _repository.GetRealEstateById(payload.Id);
+
+            if (realEstate == null)
+                return false;
+
+            realEstate.Price = payload.Price;
+            return true;
         }
     }
 }

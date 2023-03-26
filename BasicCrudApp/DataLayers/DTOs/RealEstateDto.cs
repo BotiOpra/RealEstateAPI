@@ -1,26 +1,18 @@
-﻿using System.Buffers;
+﻿using BasicCrudApp.DataLayers.Entities;
 
-namespace BasicCrudApp.DataLayers.Entities
+namespace BasicCrudApp.DataLayers.DTOs
 {
-    public class RealEstateEntity
+    public class RealEstateDto
     {
         public int Id { get; set; }
-        public OwnerEntity? Owner { get; set; }
         public RealEstateType Type { get; set; }
         public string? City { get; set; }
         public string? Street { get; set; }
         public int NumberOfRooms { get; set; }
         public int SizeInSquareMeters { get; set; }
-
         public int Price { get; set; }
-    }
 
-    public enum RealEstateType
-    {
-        Apartment,
-        House,
-        Villa,
-        Commercial,
-        Industrial
+        public string OwnerName { get; set; }
+        public string OwnerContact { get; set; }
     }
 }

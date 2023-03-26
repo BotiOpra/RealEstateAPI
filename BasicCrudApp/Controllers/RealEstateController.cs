@@ -1,4 +1,6 @@
-﻿using BasicCrudApp.DataLayers.Entities;
+﻿using BasicCrudApp.DataLayers.DTOs;
+using BasicCrudApp.DataLayers.Entities;
+using BasicCrudApp.DataLayers.Mappings;
 using BasicCrudApp.DataLayers.Repositories;
 using BasicCrudApp.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -17,15 +19,16 @@ namespace BasicCrudApp.Controllers
         }
 
         [HttpGet("get-all/")]
-        public ActionResult<List<RealEstateEntity>> GetAll()
+        public ActionResult<List<RealEstateDto?>> GetAll()
         {
-            return _realEstateService.GetAll();
+            return _realEstateService.GetAll().Select(entity =>
+                        entity.ToRealEstateDto()).ToList();
         }
 
         [HttpGet("{id}")]
-        public ActionResult<RealEstateEntity> Get(int id)
+        public ActionResult<RealEstateDto> Get(int id)
         {
-            var realEstate = _realEstateService.GetRealEstateById(id);
+            var realEstate = _realEstateService.GetRealEstateById(id)?.ToRealEstateDto();
             if (realEstate == null)
             {
                 return NotFound();
@@ -40,22 +43,14 @@ namespace BasicCrudApp.Controllers
             return CreatedAtAction(nameof(Get), new { id = realEstate.Id }, realEstate);
         }
 
-        [HttpPut("put/{id}")]
-        public ActionResult<RealEstateEntity> Put(int id, [FromBody] RealEstateEntity realEstate)
+        [HttpPatch("edit-name/")]
+        public ActionResult<bool> Patch([FromBody] RealEstateUpdatePriceDto realEstateModel)
         {
-            if (id != realEstate.Id)
-            {
-                return BadRequest();
-            }
-
-            var existingRealEstate = _realEstateService.GetRealEstateById(id);
-            if (existingRealEstate == null)
-            {
+            bool patchState = _realEstateService.EditPrice(realEstateModel);
+            if (!patchState)
                 return NotFound();
-            }
 
-            _realEstateService.UpdateRealEstate(id, realEstate);
-            return NoContent();
+            return patchState;
         }
 
         [HttpDelete("{id}")]
