@@ -13,6 +13,14 @@ namespace BasicCrudApp.Services
             _repository = repository;
         }
 
+        public int Count
+        {
+            get
+            {
+                return _repository.GetAll().Count;
+            }
+        }
+
         public List<RealEstateEntity> GetAll()
         {
             return _repository.GetAll();

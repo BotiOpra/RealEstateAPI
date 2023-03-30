@@ -37,10 +37,11 @@ namespace BasicCrudApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult<RealEstateEntity> Post([FromBody] RealEstateEntity realEstate)
+        public ActionResult<RealEstateEntity> Post([FromBody] RealEstateRequestDto realEstate)
         {
-            _realEstateService.AddRealEstate(realEstate);
-            return CreatedAtAction(nameof(Get), new { id = realEstate.Id }, realEstate);
+            var realEstateEntity = RealEstateMappingExtensions.ToRealEstateEntity(realEstate, _realEstateService.Count);
+            _realEstateService.AddRealEstate(realEstateEntity);
+            return CreatedAtAction(nameof(Get), new { id = realEstateEntity.Id }, realEstate);
         }
 
         [HttpPatch("edit-name/")]
