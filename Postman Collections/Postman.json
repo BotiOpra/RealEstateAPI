@@ -1,0 +1,294 @@
+{
+	"info": {
+		"_postman_id": "12ba9ad2-f60b-4184-9863-17467fc2e322",
+		"name": "RealEstateAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a3e9aac6-5bde-46fa-bb2d-01195d645ba6",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"token\", jsonData.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "2cbd4d59-2a43-43c7-9e46-19c492641dac",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"pista\",\r\n    \"password\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5047/account/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"_postman_id": "da927bde-04a5-48fc-9fce-06ae165dbbc9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"string\",\r\n    \"lastName\": \"string\",\r\n    \"email\": \"pista\",\r\n    \"password\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5047/account/register"
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "89b8c6c1-e4d6-4106-968a-603767124f9f"
+		},
+		{
+			"name": "Announcement",
+			"item": [
+				{
+					"name": "Comments",
+					"item": [
+						{
+							"name": "Get Comments",
+							"_postman_id": "87889bdd-44cc-4cf5-af37-0e45107d38d1",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:5047/announcement/cfc19dec-39b4-4d9e-81c6-08db62abd92b/comments"
+							},
+							"response": []
+						},
+						{
+							"name": "Add Comment",
+							"_postman_id": "f0e22d10-8229-42c2-87e3-bc3346c73641",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"commentMessage\": \"This is an amazing apartment\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5047/announcement/cfc19dec-39b4-4d9e-81c6-08db62abd92b/comments"
+							},
+							"response": []
+						}
+					],
+					"_postman_id": "4948388d-a71c-4e8e-85d7-95e7f3bfb016",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Add announcement",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b8af6b89-4ecc-4b96-ad9f-43aa637483c7",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "fd8cc00b-3112-4f35-9e1b-46ba968d1bd3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"transactionType\": 0,\r\n  \"realEstate\": {\r\n    \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n    \"type\": 0,\r\n    \"roomCount\": 0,\r\n    \"usableSurfaceArea\": 0,\r\n    \"floor\": 0,\r\n    \"constructionYear\": 0,\r\n    \"address\": \"string\"\r\n  },\r\n  \"price\": 0,\r\n  \"postTitle\": \"string\",\r\n  \"postDescription\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5047/announcement"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete announcement",
+					"_postman_id": "aef6d64a-d580-4b1a-9547-da21144b4125",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:5047/announcement/e27d5eec-d854-49d2-01eb-08db62aaa08d"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Feed Announcements",
+					"_postman_id": "1224fdfd-9837-4930-9f7b-03e96ad150ff",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5047/announcement"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Announcement by ID",
+					"_postman_id": "111ad9ae-81bc-4a95-81bb-775de659e9be",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5047/announcement/9198a78b-567e-4fe6-5b10-08db638f3ee8"
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "a3be6486-73f0-4f9f-9109-18fe326fb69e"
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get User Announcements",
+					"_postman_id": "9fae2bb9-d42c-48fc-82a5-b903b81698e0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5047/user/announcements"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Comments",
+					"_postman_id": "e764966f-2b13-4e51-aa0d-0bec8429b4a3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5047/user/comment"
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "61213338-829e-4afc-87f1-dd8ee5a8ad8c"
+		},
+		{
+			"name": "Get all users",
+			"_postman_id": "eaac6095-be7e-4c7d-8502-7cf9094a4a43",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:5047/user"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b66839bd-fc35-4c61-ab4a-af097ee78d38",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "aa4c73b1-40a0-43c9-9c01-14996d93c764",
+				"type": "text/javascript",
+				"exec": [
+					"",
+					""
+				]
+			}
+		}
+	]
+}
