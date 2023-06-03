@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "12ba9ad2-f60b-4184-9863-17467fc2e322",
-		"name": "RealEstateAPI",
+		"_postman_id": "f3d542ef-2565-4552-9669-49a6a38a96e7",
+		"name": "RealEstateAPI Copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
@@ -14,7 +14,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "a3e9aac6-5bde-46fa-bb2d-01195d645ba6",
+								"id": "c2119633-999b-48ac-b61b-2ef54c24492f",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);\r",
 									"postman.setEnvironmentVariable(\"token\", jsonData.token);"
@@ -23,7 +23,7 @@
 							}
 						}
 					],
-					"id": "2cbd4d59-2a43-43c7-9e46-19c492641dac",
+					"_postman_id": "8730aeb9-cace-479d-8086-7cd69a75080d",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -48,7 +48,7 @@
 				},
 				{
 					"name": "Register",
-					"id": "da927bde-04a5-48fc-9fce-06ae165dbbc9",
+					"_postman_id": "8f3c0acb-5784-4bdc-ae77-86df832679c4",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -64,12 +64,12 @@
 								}
 							}
 						},
-						"url": "http://localhost:5047/account/registerfecske"
+						"url": "http://localhost:5047/account/register"
 					},
 					"response": []
 				}
 			],
-			"id": "89b8c6c1-e4d6-4106-968a-603767124f9f"
+			"_postman_id": "59a36bbb-f842-45b6-b41d-e802292f5116"
 		},
 		{
 			"name": "Announcement",
@@ -79,7 +79,7 @@
 					"item": [
 						{
 							"name": "Get Comments",
-							"id": "87889bdd-44cc-4cf5-af37-0e45107d38d1",
+							"_postman_id": "55440406-aa5b-4a79-8cf0-bcb5b715dc83",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -92,7 +92,7 @@
 						},
 						{
 							"name": "Add Comment",
-							"id": "f0e22d10-8229-42c2-87e3-bc3346c73641",
+							"_postman_id": "627b2469-9412-46ad-aa8d-4532a37b6d41",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -119,7 +119,8 @@
 							"response": []
 						}
 					],
-					"id": "4948388d-a71c-4e8e-85d7-95e7f3bfb016"
+					"_postman_id": "a4a4418e-68f6-4967-8507-e248104be2d3",
+					"_postman_isSubFolder": true
 				},
 				{
 					"name": "Add announcement",
@@ -127,7 +128,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b8af6b89-4ecc-4b96-ad9f-43aa637483c7",
+								"id": "8ca581b7-59ec-4077-84a0-831e8dabdf99",
 								"exec": [
 									""
 								],
@@ -135,7 +136,7 @@
 							}
 						}
 					],
-					"id": "fd8cc00b-3112-4f35-9e1b-46ba968d1bd3",
+					"_postman_id": "fbed9b3c-e7b8-4f59-8b79-d62ccca7a602",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -163,7 +164,7 @@
 				},
 				{
 					"name": "Delete announcement",
-					"id": "aef6d64a-d580-4b1a-9547-da21144b4125",
+					"_postman_id": "1ea1dd81-9215-477b-aef8-5b8d174cec45",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -182,7 +183,7 @@
 				},
 				{
 					"name": "Get Feed Announcements",
-					"id": "1224fdfd-9837-4930-9f7b-03e96ad150ff",
+					"_postman_id": "fae2a0c1-7645-482c-8b9e-747d84fd9ad5",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -195,7 +196,7 @@
 				},
 				{
 					"name": "Get Announcement by ID",
-					"id": "111ad9ae-81bc-4a95-81bb-775de659e9be",
+					"_postman_id": "7d27d946-80e3-4d57-92ee-f90be1e4875b",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -207,14 +208,14 @@
 					"response": []
 				}
 			],
-			"id": "a3be6486-73f0-4f9f-9109-18fe326fb69e"
+			"_postman_id": "c6e39b4e-8750-4642-b885-b0f86c225ece"
 		},
 		{
 			"name": "User",
 			"item": [
 				{
 					"name": "Get User Announcements",
-					"id": "9fae2bb9-d42c-48fc-82a5-b903b81698e0",
+					"_postman_id": "e11652ce-04ed-483a-8726-90d41c490b94",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -233,7 +234,7 @@
 				},
 				{
 					"name": "Get User Comments",
-					"id": "e764966f-2b13-4e51-aa0d-0bec8429b4a3",
+					"_postman_id": "5c205466-1953-4205-9503-97c991abd205",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -251,11 +252,11 @@
 					"response": []
 				}
 			],
-			"id": "61213338-829e-4afc-87f1-dd8ee5a8ad8c"
+			"_postman_id": "c8e14049-5f6b-4873-b06c-33ad156e7f57"
 		},
 		{
 			"name": "Get all users",
-			"id": "eaac6095-be7e-4c7d-8502-7cf9094a4a43",
+			"_postman_id": "e7f579b9-ed5e-401a-be0c-6cde69e64be8",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -271,7 +272,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "b66839bd-fc35-4c61-ab4a-af097ee78d38",
+				"id": "4e3973f1-75f8-4f08-98c2-ce5ea1d655f1",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -281,7 +282,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "aa4c73b1-40a0-43c9-9c01-14996d93c764",
+				"id": "62953e4b-cff7-4ba3-9b28-5517236c21f9",
 				"type": "text/javascript",
 				"exec": [
 					"",
